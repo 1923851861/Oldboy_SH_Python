@@ -1,0 +1,91 @@
+上节课复习：
+    1、封装
+        class Foo:
+            __n=111 #_Foo__n
+            def __init__(self,x):
+                self.__x=x #self._Foo__x
+
+            def func(self):
+                self.__x #self._Foo__x
+                Foo.__n #Foo._Foo__n
+
+        obj=Foo()
+        obj.__x
+        Foo.__n
+
+        Foo.__m=111
+        obj,__y=22
+
+
+        class Foo:
+            __x=111 #_Foo__x
+
+        class Bar(Foo):
+            __x=222 #_Bar__x
+
+    2、property
+        可以将类内的函数伪装成一个数据属性去访问
+
+        class Foo:
+            def __init__(self,x):
+                self.__x=x
+
+            #新的写法
+            @property
+            def x(self):
+                return self.__x
+
+            @x.setter
+            def x(self,val)
+                self.__x=val
+
+            @x.deleter
+            def x(self):
+                del self.__x
+
+
+            # 古老的写法
+            def get_x(self):
+                pass
+
+            def set_x(self,val):
+                pass
+
+            def del_x(self):
+                pass
+
+            x=property(get_x,set_x,del_x)
+        obj=Foo(10)
+        obj.x
+        obj.x=1
+        del obj.x
+
+
+    3、绑定方法与非绑定方法
+        @classmethod
+
+        @staticmethod
+
+
+
+今日内容：
+    1、反射
+        hasattr
+        setattr
+        getattr
+        delattr
+
+    2、内置的方法
+        __str__
+        __del__
+
+    3、元类(*****)
+        用于实例化产生类的类称之为元类
+        __call__
+        __new__
+
+        单例模式
+
+
+
+

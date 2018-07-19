@@ -1,0 +1,34 @@
+上节课复习
+    1、函数的参数分为两大类
+        形参
+            def foo(x,y):
+                pass
+        实参
+            a=1,b=2
+            foo(a,b)
+
+    2、细分
+        1、位置参数
+            位置形参
+            位置实参
+        2、关键字实参
+            foo(1,x=2)
+        3、默认形参
+            def foo(x,y=1):
+                pass
+
+        4、*args，**kwargs
+            def index(name,age):
+                pass
+            def wrapper(*args,**kwargs):
+                index(*args,**kwargs) #index(1,x=1,y=2)
+
+            wrapper(1,x=1,y=2)
+
+今日内容：
+    1、函数对象
+    2、函数嵌套
+    3、名称空间与作用域
+
+    4、匿名函数
+    5、内置函数

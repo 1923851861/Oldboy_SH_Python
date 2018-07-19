@@ -1,0 +1,28 @@
+上节课复习
+    1、生成器
+        def func():
+            yield
+        g=func()
+        next(g)
+
+        x=yield
+    2、三元表达式
+        res=x if 条件 else y
+    3、列表推导式，字典生成式，生成器表达式
+        l=[表达式 for i in 可迭代对象 if 条件]
+        g=(表达式 for i in 可迭代对象 if 条件)
+        d={k:v for i in 可迭代对象 if 条件}
+    4、max，zip
+        max(可迭代对象)
+        生成器=zip(可迭代对象1，可迭代对象2)
+            g=zip('hello',[1,2,3])
+            # print(g)
+            print(list(g))
+
+
+今日内容：
+    1、函数递归与二分法
+    2、匿名函数
+    3、内置函数
+    4、面向过程编程
+    5、函数知识点总结

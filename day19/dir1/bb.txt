@@ -1,0 +1,50 @@
+上节课复习
+    1、序列化/发序列化
+        内存中的数据---序列化----》中间格式（存到硬盘/基于网络传输）
+
+        json
+            优点：
+                可以跨平台
+            缺点：
+                不能识别所有的python类型
+        pickle
+            优点：
+                可以识别所有的python类型
+            缺点：
+                不可以跨平台
+
+        import json
+        dic={'x':1}
+        json_str=json.dumps(dic)
+        json.loads(json_str)
+
+        with open('db.json','wt',encoding='utf') as f:
+            json.dump(dic,f)
+
+        with open('db.json','rt',encoding='utf') as f:
+            dic=json.load(f)
+
+
+    2、时间模块
+        时间戳time.time()
+        格式化的字符串time.strftime('%Y-%m-%d %H:%M:%S')
+        结构化的时间time.localtime()  time.gmtime()
+
+        datetime.datetime.now()
+        datetime.datetime.fromtimestamp(12313123)
+        datetime.datetime.now() + datetime.timedelta(hours=-3)
+
+    3、random
+
+
+
+
+今日内容：
+    re模块（*****）
+    sys模块 （*****）
+    shutil （*）
+    shelve （*）
+    xml （**）
+    configparser （***）
+    hashlib （*****）
+    subprocess （*****）

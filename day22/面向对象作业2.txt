@@ -1,0 +1,50 @@
+今日作业：
+	1、多重继承的执行顺序，请解答以下输出结果是什么？并解释。
+
+		class A(object):
+		   def __init__(self):
+		       print('A')
+		       super(A, self).__init__()
+
+		class B(object):
+		   def __init__(self):
+		       print('B')
+		       super(B, self).__init__()
+
+		class C(A):
+		   def __init__(self):
+		       print('C')
+		       super(C, self).__init__()
+
+		class D(A):
+		   def __init__(self):
+		       print('D')
+		       super(D, self).__init__()
+
+		class E(B, C):
+		   def __init__(self):
+		       print('E')
+		       super(E, self).__init__()
+
+		class F(C, B, D):
+		   def __init__(self):
+		       print('F')
+		       super(F, self).__init__()
+
+		class G(D, B):
+		   def __init__(self):
+		       print('G')
+		       super(G, self).__init__()
+
+		if __name__ == '__main__':
+		   g = G()
+		   f = F()
+
+	2、什么是新式类，什么是经典类，二者有什么区别？什么是深度优先，什么是广度优先？
+	3、解释多态、多态性、鸭子类型
+	4、定义课程类、班级类、老师类、学生类，要求如下
+		1、一名老师可以带多个班级，一名学生可以属于多个班级
+		2、班级绑定课程
+		3、基于继承或组合减少代码冗余
+
+	选做：按照图，实现其他类及其关系

@@ -1,0 +1,40 @@
+上节课复习：
+    1、什么是元类
+        元类是我们自定义类的类，即我们用class定义的类本质
+        就是在实例化元类
+
+        class Foo: #Foo=元类('类名',（obejct）,class_dic)
+            pass
+
+        obj=Foo()
+
+    2、为何用用元类+如何用?
+        2.1 控制class定义类的过程
+            class Mymeta(type):
+                def __init__(self,class_name,class_bases,class_dic):
+                    #控制逻辑
+                    super().__init__(class_name,class_bases,class_dic)
+
+            class Foo(object,metaclass=Mymeta): #Foo=Mymeta('Foo',(object,),{'x':1,....})
+                x=1
+
+
+        2.2 控制对象（指的就是Foo的对象）的产生过程
+            class Mymeta(type):
+                def __call__(self,*args,**kwargs):
+                    obj=self.__new__(self) #self=Foo
+                    self.__init__(obj,*args,**kwargs)
+                    return obj
+
+            class Foo(object,metaclass=Mymeta):  #Foo=Mymeta(...)
+                def __init__(self,x,y):
+                    self.x=x
+                    self.y=y
+
+            obj=Foo(x=1,y=2)
+
+
+
+今日内容：
+    1、单例模式的三种实现方式
+    2、异常处理

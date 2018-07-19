@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Python开发之路 - linhaifeng - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=-hy83QNg62d4qYibixJzxMJkbf1P9fTBlqv7SK5zVL01"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/MountainInk/bundle-MountainInk.css?v=HBGibhyLLV8mQnQReVubX6-F2k_BiB7Ei8bEthXTpWA1"/>
+<link type="text/css" rel="stylesheet" href="/blog/customcss/309331.css?v=nF4khGDRW%2bZmmHwjZ4XKvlGDpBU%3d"/>
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/MountainInk/bundle-MountainInk-mobile.css?v=d9LctKHRIQp9rreugMcQ1-UJuq_j1fo0GZXTXj8Bqrk1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/linhaifeng/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/linhaifeng/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/linhaifeng/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">var currentBlogApp = 'linhaifeng', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=hrXhVUZRBrM1QWdCTm1D-5NdRKBmg-PqI2KBNh-fiD41" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+<!--PageBeginHtml Block Begin-->
+<script src="https://files.cnblogs.com/files/linhaifeng/dashang.js"></script>
+<script>
+     new tctip({
+    top: '20%',
+    button: {
+      id: 9,
+      type: 'dashang',
+    },
+    list: [
+      {
+        type: 'alipay',
+        qrImg: 'https://files.cnblogs.com/files/linhaifeng/aipay.bmp'
+      }, {
+        type: 'wechat',
+        qrImg: 'https://files.cnblogs.com/files/linhaifeng/weixin.bmp'
+      },
+
+     //{
+     //   type: 'bitcoin',
+     //   qrContent: '1PhQySHF1ZuoRwoZ8G4CDLEtE6fAnD3GJP'
+     //}
+    ]
+  }).init()
+</script>
+<!--PageBeginHtml Block End-->
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/linhaifeng/"><img id="blogLogo" src="/Skins/custom/images/logo.gif" alt="返回主页" /></a>
+
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/linhaifeng/">吾日三洗吾身，洗头、洗脸、洗身体</a></h1>
+<h2></h2>
+
+
+
+
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/linhaifeng/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/linhaifeng">联系</a></li>
+<li>
+<!----></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 31&nbsp; </span>
+<span id="stats_article_count">文章 - 100&nbsp; </span>
+<span id="stats-comment_count">评论 - 123</span>
+</div>
+
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/linhaifeng/p/7278389.html">Python开发之路</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p>详细内容见老男孩&lt;&lt;python入门与提高实践&gt;&gt;</p>
+<p><a href="http://www.cnblogs.com/linhaifeng/articles/7133167.html" target="_blank"><span style="font-size: 14pt;">第一篇：python入门</span></a></p>
+<p><a href="http://www.cnblogs.com/linhaifeng/articles/7133357.html" target="_blank"><span style="font-size: 14pt;">第二篇：数据类型、字符编码、文件处理</span></a></p>
+<p><a href="http://www.cnblogs.com/linhaifeng/articles/7532512.html" target="_blank"><span style="font-size: 14pt;">第三篇：函数</span></a></p>
+<p><a href="http://www.cnblogs.com/linhaifeng/articles/6379069.html" target="_blank"><span style="font-size: 14pt;">第四篇：模块与包</span></a></p>
+<p><a href="http://www.cnblogs.com/linhaifeng/articles/6384466.html" target="_blank"><span style="font-size: 14pt;">第五篇：常用模块</span></a></p>
+<p><a href="http://www.cnblogs.com/linhaifeng/articles/6182264.html" target="_blank"><span style="font-size: 14pt;">第六篇：面向对象</span></a></p>
+<p><a href="http://www.cnblogs.com/linhaifeng/articles/6204014.html" target="_blank"><span style="font-size: 14pt;">第七篇：面向对象高级</span></a></p>
+<p><a href="http://www.cnblogs.com/linhaifeng/articles/6232220.html" target="_blank"><span style="font-size: 14pt;">第八篇：异常处理</span></a></p>
+<p><a href="http://www.cnblogs.com/linhaifeng/articles/6129246.html" target="_blank"><span style="font-size: 14pt;">第九篇：网络编程</span></a></p>
+<p><a href="http://www.cnblogs.com/linhaifeng/articles/6817679.html" target="_blank"><span style="font-size: 14pt;">第十篇：并发编程</span></a></p>
+<p><a href="http://www.cnblogs.com/linhaifeng/articles/7356064.html" target="_blank"><span style="font-size: 14pt;">第十一篇：Mysql系列</span></a></p>
+<p><span style="font-size: 14pt;">更新中...</span></p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2017-08-03 10:34</span> <a href='http://www.cnblogs.com/linhaifeng/'>linhaifeng</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=7278389" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(7278389);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=309331,cb_entryId=7278389,cb_blogApp=currentBlogApp,cb_blogUserGuid='66b39f18-c28a-e611-845c-ac853d9f53ac',cb_entryCreatedDate='2017/8/3 10:34:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+
+<!--done-->
+Copyright &copy;2018 linhaifeng
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+<!--PageEndHtml Block Begin-->
+<script language="javascript" type="text/javascript">
+//生成目录索引列表
+function GenerateContentList()
+{
+  var jquery_h3_list = $('#cnblogs_post_body h1,h2,h3,h4').not('.catListTitle').not('#blogTitle h1');//如果你的章节标题不是h4,只需要将这里的h4换掉即可
+  if(jquery_h3_list.length>0)
+  {
+    var content = '<a name="_labelTop"></a>';
+    content	+= '<div id="navCategory">';
+    content	+= '<p style="font-size:25px"><b>阅读目录</b></p>';
+    content	+= '<ul>';
+    for(var i =1;i<jquery_h3_list.length;i++)
+    {
+       // 以下两行是回到顶部的功能
+       // var go_to_top = '<div style="text-align: right"><a href="#_labelTop">回到顶部</a><a name="_label' + i + '"></a></div>';
+       var go_to_top = '<div style="text-align: right"><a href="#_labelTop"></a><a name="_label' + i + '"></a></div>';
+       $(jquery_h3_list[i]).before(go_to_top);
+      var li_content = '<li><a href="#_label' + i + '"style="color: darkseagreen;text-decoration:none;font-size:18px">' + $(jquery_h3_list[i]).text() + '</a></li>';
+      content += li_content;
+    }
+    content	+= '</ul>';
+    content	+= '</div>';
+    if($('#cnblogs_post_body').length != 0 )
+    {
+      $($('#cnblogs_post_body')[0]).prepend(content);
+    }
+  }
+}
+GenerateContentList();
+</script>
+<!--PageEndHtml Block End-->
+</body>
+</html>
