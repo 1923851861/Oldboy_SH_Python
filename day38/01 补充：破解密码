@@ -1,0 +1,17 @@
+
+
+#1、关闭mysql
+net stop mysql
+
+#2、重新启动
+mysqld --skip-grant-tables
+
+
+#3
+mysql -uroot -p
+
+update mysql.user set password=password("egon123") where user="root" and host="localhost";
+flush privileges;
+
+#4、关闭mysql，正常启动
+net start mysql

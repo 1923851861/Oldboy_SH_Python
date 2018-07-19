@@ -1,0 +1,152 @@
+一、创建表的完整语法
+#语法：
+create table 库名.表名(
+    字段名1 类型[(宽度) 约束条件],
+    字段名2 类型[(宽度) 约束条件],
+    字段名3 类型[(宽度) 约束条件]
+);
+约束条件：是在数据类型之外对字段附加的额外的限制
+
+#注意：
+1、最后一个字段之后不能加逗号
+2. 在同一张表中，字段名是不能相同
+3. 宽度和约束条件可选，字段名和类型是必须的
+
+二、数据类型
+#1、整型：默认是有符号的
+create table t3(x tinyint);
+
+ps：修改sql_mode为严格模式，必须重启客户端才能生效
+    set global sql_mode="strict_trans_tables";
+    select @@sql_mode;
+
+create table t4(x tinyint unsigned);
+
+# 强调：整型类型后面的宽度限制的根本不是存储宽度，限制的是显示宽度
+create table t5(id int(1));
+create table t6(id int(5));
+
+#2、浮点型：
+float(255,30)
+double(255,30)
+decimal(65,30)
+
+create table t8(x float(255,30));
+create table t9(x double(255,30));
+create table t10(x decimal(65,30));
+
+insert into t8 values(1.111111111111111111111111111111);
+insert into t9 values(1.111111111111111111111111111111);
+insert into t10 values(1.111111111111111111111111111111);
+
+
+3、日期类型
+year 1999
+date 1999-11-11
+time 08:30:00
+datetime/timestamp 1999-11-11 08:30:00
+
+create table student(
+    id int primary key auto_increment,
+    name char(16),
+    born_year year,
+    birth date,
+    class_time time,
+    reg_time datetime
+);
+insert into student(name,born_year,birth,class_time,reg_time) values
+('egon1',now(),now(),now(),now());
+
+insert into student(name,born_year,birth,class_time,reg_time) values
+('egon1',2000,20001111,now(),now());
+
+insert into student(name,born_year,birth,class_time,reg_time) values
+('egon1',2000,'2000-11-11',083000,now());
+
+insert into student(name,born_year,birth,class_time,reg_time) values
+('egon1',2000,'2000-11-11',"08:30:00",20171111111111);
+
+insert into student(name,born_year,birth,class_time,reg_time) values
+('egon1',2000,'2000-11-11',"08:30:00","2017-11-11 11:11:11");
+
+create table t11(x timestamp);
+create table t12(x datetime not null default now());
+
+
+4、字符类型
+# 注意：宽度指限制的是字符个数
+char：定长
+    char(5)
+
+varchar：变长
+    varchar(5)
+
+相同点：宽度指的都是最大存储的字符个数，超过了都无法正常存储
+不同点：
+    char(5):
+        'm'--->'m    '5个字符
+
+    varchar(5)
+        'm'--->'m'1个字符
+
+set global sql_mode="strict_trans_tables,PAD_CHAR_TO_FULL_LENGTH";
+
+注意：mysql在查询时针对where 字段="值    "会忽略掉右面的空格，即where 字段="值"
+如果时like模糊匹配就不会忽略右面的空格了
+
+char(5)
+egon |axx  |lxx  |fm   |
+
+varchar(5)
+1bytes+egon|1bytes+axx|1bytes+lxx|1bytes+fm|
+
+
+
+
+
+
+
+
+# 宽度相关练习
+mysql> create table t13(x char(5));
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> create table t14(x varchar(5));
+Query OK, 0 rows affected (0.27 sec)
+
+mysql>
+mysql>
+mysql> insert into t13 values('xxxxxx');
+ERROR 1406 (22001): Data too long for column 'x' at row 1
+mysql> insert into t14 values('xxxxxx');
+ERROR 1406 (22001): Data too long for column 'x' at row 1
+
+
+5、枚举与集合类型
+枚举enum('a','b','c'):多选一
+集合set('a','b','c'):多选多
+
+create table emp(
+    name varchar(15),
+    sex enum('male','female','unkown'),
+    hobbies set('read','music','yinshi','play')
+);
+
+insert into emp values
+('zhangming','xxx','xxxx');
+
+
+mysql> insert into emp values('zhangming','female','read,play');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from emp;
++-----------+--------+-----------+
+| name      | sex    | hobbies   |
++-----------+--------+-----------+
+| zhangming | female | read,play |
++-----------+--------+-----------+
+1 row in set (0.00 sec)
+三、约束条件
+
+
+
