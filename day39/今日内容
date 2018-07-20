@@ -1,0 +1,64 @@
+上节课复习：
+    1、基本sql语句
+        库
+            增
+                create database db1 charset utf8;
+            删
+                drop database db1;
+            改
+                alter database db1 charset gbk;
+            查
+                show create database db1;
+                show databases;
+        表
+            use db1;
+            select database();
+
+            增
+                create table t1(id int,name varchar(15));
+            删
+                drop table t1;
+            改
+                alter table t1 add sex enum('male','female');
+                alter table t1 modify name varchar(16);
+                alter table t1 change name NAME varchar(16);
+
+            查
+                show tables;
+                show create table t1;
+
+        记录
+            增
+                insert into t1 values(1,'egon'),(2,'egon2'),(3,'egon3');
+            删
+                delete from t1 where id > 3;
+
+                清空表：
+                    truncate t1;
+
+            改
+                update db1.t1 set name='xxx' where id > 3;
+            查
+                1 egon1
+                2 egon2
+                3 egon3
+                4 egon4
+                5 egon5
+
+                select id from db1.t1 where id > 3;
+
+    2、创建表的数据类型
+
+
+
+
+今日内容：
+    1、表的完整性约束
+        表之间的三种关系
+            多对一
+            多对多
+            一对一
+
+    2、单表查询
+
+    3、多表查询

@@ -1,0 +1,135 @@
+一、创建表的完整语法
+#语法：
+create table 库名.表名(
+    字段名1 类型[(宽度) 约束条件],
+    字段名2 类型[(宽度) 约束条件],
+    字段名3 类型[(宽度) 约束条件]
+);
+约束条件：是在数据类型之外对字段附加的额外的限制
+
+#注意：
+1、最后一个字段之后不能加逗号
+2. 在同一张表中，字段名是不能相同
+3. 宽度和约束条件可选，字段名和类型是必须的
+
+二 not null与default
+create table t1(
+    id int primary key auto_increment,
+    name varchar(16) not null,
+    sex enum('male','female') not null default 'male'
+);
+
+insert into t1(name) values('egon'),('lxx'),('alex');
+
+三 unique key
+create table t2(x int unique);
+create table t3(
+    x int,
+    y varchar(5),
+    unique key(x)
+);
+create table t4(
+    x int,
+    y varchar(5),
+    constraint uni_x unique key(x)
+);
+
+create table service(
+    ip varchar(15),
+    port int,
+    unique key(ip,port)
+);
+insert into service values
+('1.1.1.1',3306),
+('1.1.1.1',3306);
+
+
+四 primary key
+站在约束角度看primary key=not null unique
+以后但凡建表，必须注意：
+1、必须有且只有一个主键
+2、通常是id字段被设置为主键
+create table t5(
+    id int primary key auto_increment
+);
+
+# 补充存储引擎：
+create table t12(x int)engine='myisam';
+create table t13(x int)engine='innodb';
+create table t14(x int)engine='memory';
+create table t15(x int)engine='blackhole';
+
+
+五 foreign key：限制关联表某一个字段的值必是来自于被关联表的一个字段的
+# foreign key注意：
+# 1、被关联的字段必须是一个key，通常是id字段
+# 2、创建表时：必须先建立被关联的表，才能建立关联表
+create table dep(
+    id int primary key auto_increment,
+    dname varchar(20),
+    info varchar(50)
+);
+
+
+create table emp(
+    id int primary key auto_increment,
+    name varchar(15),
+    age int,
+    dep_id int,
+    foreign key(dep_id) references dep(id)
+    on update cascade
+    on delete cascade
+);
+# 3、插入记录时：必须先往被关联的表插入记录，才能往关联表中插入记录
+insert into dep(dname,info) values
+('IT','技术能力有限部门xxx'),
+('Sale','文化程度不高'),
+('HR','招不到人部门');
+
+
+insert into emp(name,age,dep_id) values
+('egon',18,1),
+('alex',28,2),
+('wsj',38,2),
+('lxx',30,1),
+('xiaohou',18,3);
+
+ps:删除时：应该先删除关联表emp中的记录，再删除被关联表对应的记录
+
+
+
+# 找两张表的关系的窍门
+emp        dep
+#1、先站在左表的角度：去找左表emp的多条记录能否对应右表dep的一条记录
+    翻译：多个员工能否属于一个部门
+
+#2、然后站在右表的角度：去找右表dep的多条记录能否对应左表emp的一条记录
+    翻译：多个部门能否拥有同一名员工
+
+# 多对一：结果的判断
+#1、如果只有单向的多对一成立，那么最终的关系就是多对一
+#2、在emp表新增一个字段dep_id, 该字段外键关联dep(id)
+
+# 多对多：结果的判断
+#1、双向的多对一就是多对多
+#2、需要建立第三张表，有一个字段值fk左表，一个字段的值fk右表
+create table author(
+    id int primary key auto_increment,
+    name varchar(16),
+    age int
+);
+create table book(
+    id int primary key auto_increment,
+    bname varchar(20),
+    price int
+);
+create table author2book(
+    id int primary key auto_increment,
+    author_id int,
+    book_id int,
+    foreign key(author_id) references author(id) on update cascade on delete cascade,
+    foreign key(book_id) references book(id) on update cascade on delete cascade
+);
+
+# 一对一：无需参考窍门，左表的一条数据唯一对应右表的一条记录
+fk+unique
