@@ -1,0 +1,4 @@
+# 强调
+#1、字段名不能重复
+#2、视图是为了简化查询的sql语句，不应该修改视图中的记录
+create view emp2dep as select emp.*,dep.name as dep_name from emp inner join dep on emp.dep_id = dep.id;

@@ -1,0 +1,27 @@
+#transaction:事务，交易
+# 事务可以包含一系列的sql语句，事务的执行具有原子性
+#1、原子性：
+#包含多条sql语句要么都执行成功，要么都执行不成功
+#2、回滚
+
+create table user(
+id int primary key auto_increment,
+name char(32),
+balance int
+);
+
+insert into user(name,balance)
+values
+('wsb',1000),
+('egon',1000),
+('ysb',1000);
+
+
+start transaction;
+try:
+    update user set balance=900 where id=1;
+    update user set balance=1010 where id=2;
+    update user set balance=1090 where id=3;
+    commit;
+except Exception:
+    rollback;

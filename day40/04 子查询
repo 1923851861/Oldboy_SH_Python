@@ -1,0 +1,17 @@
+子查询：就是将一个查询语句的结果用括号括起来当作另外一个查询语句的条件去用
+
+
+select * from emp where dep_id in (select id from dep where name = "技术" or name = "人力资源");
+
+
+# 每个部门最新入职的员工
+select t1.id,t1.name,t1.hire_date,t1.post,t2.* from emp as t1
+inner join
+(select post,max(hire_date) as max_date from emp group by post) as t2
+on t1.post = t2.post
+where t1.hire_date = t2.max_date
+;
+
+
+
+select * from emp inner join dep on emp.dep_id = dep.id;

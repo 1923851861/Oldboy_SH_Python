@@ -1,0 +1,42 @@
+上节课复习：
+    1、单表查询
+        select distinct 字段1，字段2，。。。 from 库名.表名
+                                    where 条件
+                                    group by 分组字段
+                                    having 条件
+                                    order by 排序字段
+                                    limit 限制显示的条数
+                                    ;
+
+        select * from 表名 order by age asc,salary desc limit 10;
+        select * from 表名 order by age asc,salary desc limit 0,5;
+
+        select * from t1 where name like 'xx%';
+        select * from t1 where name like 'x_';
+        select * from t1 where name regexp '^.*$';
+
+    2、多表查询
+        emp dep
+
+        select * from emp inner join dep on emp.dep_id = dep.id;
+        select * from emp left join dep on emp.dep_id = dep.id;
+        select * from emp right join dep on emp.dep_id = dep.id;
+
+        select * from emp left join dep on emp.dep_id = dep.id
+        union
+        select * from emp right join dep on emp.dep_id = dep.id;
+
+
+
+
+
+
+
+
+
+今日内容：
+    1、pymysql
+    2、navicat
+    3、视图、触发器、事务、存储过程、函数
+
+

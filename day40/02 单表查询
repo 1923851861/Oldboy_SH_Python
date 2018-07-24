@@ -1,0 +1,159 @@
+#1、完整语法(语法级别关键字的排列顺序如下)
+select distinct 字段1,字段2,字段3,... from 库名.表名
+                    where 约束条件
+                    group by 分组依据
+                    having 过滤条件
+                    order by 排序的字段
+                    limit 限制显示的条数
+                    ;
+# 必须要有的关键字如下：
+select * from t1;
+
+
+# 关键字执行的优先级
+from
+where
+group by
+having
+distinct
+order by
+limit
+
+
+def from():
+    pass
+
+def where():
+    pass
+
+def group():
+    pass
+
+def having():
+    pass
+
+def distinct():
+    pass
+
+def order():
+    pass
+
+def limit():
+    pass
+
+def select():
+    f=from()
+    res1=where(f)
+    res2=group(res1)
+    res3=having(res2)
+    res4=distinct(res3)
+    res5=order(res4)
+    limit(res5)
+
+
+#1、简单查询
+select * from t1;
+select id,name,sex from t1;
+select distinct post from emp;
+select name,salary*12 as annual_salary from emp;
+
+select concat('名字: ',name) as new_name,concat("年龄: ",age) as new_age from emp;
+select concat(name,":",age) from emp;
+
+select concat(name,":",age,":",sex) from emp;
+select concat_ws(":",name,age,sex) as info from emp;
+
+
+ SELECT
+       (
+           CASE
+           WHEN NAME = 'egon' THEN
+               NAME
+           WHEN NAME = 'alex' THEN
+               CONCAT(name,'_BIGSB')
+           ELSE
+               concat(NAME, 'SB')
+           END
+       ) as new_name
+   FROM
+       emp;
+
+#2、where
+select * from emp where id >= 10 and id <=15; # 等同于select * from emp where id between 10 and 15;
+select * from emp where id = 6 or id = 9 or id = 12; # 等同于select * from emp where id in (6,9,12);
+
+_代表任意单个字符
+%代表任意无穷个字符
+select * from emp where name like "__";
+select * from emp where name like "jin%";
+select * from emp where id not in (6,9,12);
+select * from emp where id not between 10 and 15;
+
+
+#3、group by分组
+# 什么分组：按照所有记录相同的部分进行归类，一定区分度低的字段
+# 为何要分组：当我们要以组为单位进行统计时就必须分组，分组的目的是为了以组为单位进行统计的，再去考虑单条记录毫无意义
+
+
+# set global sql_mode="strict_trans_tables,only_full_group_by";
+# 注意:分组之后，只能查到分组的字段以及组内多条记录聚合的成果
+select * from emp group by post;
+
+
+
+
+# 聚合函数
+max
+min
+avg
+sum
+count
+
+
+select post,count(id) from emp group by post;
+select post,max(salary) from emp group by post;
+select post,avg(salary) from emp group by post;
+select sex,count(sex) from emp group by sex;
+
+# 统计出每个部门年龄30以上的员工的平均薪资
+select post,avg(salary) from emp where age >= 30 group by post;
+
+# 注意：分组是在where之后发生的
+mysql> select * from emp where max(salary) > 3000;
+ERROR 1111 (HY000): Invalid use of group function
+
+# group_concat
+select post,group_concat(name,':',age) from emp group by post;
+
+
+#4、having 过滤条件
+# where是在分组之前的过滤，即在分组之前做了一次整体性的筛选
+# having是在分组之后的过滤，即在分组之后专门针对聚合的结果进行进一步的筛选
+
+select post,avg(salary) from emp group by post having avg(salary) > 10000;
+select post,avg(salary) from emp group by post ;
+
+#5、order by排序
+
+select * from emp order by age asc; # 默认asc升序-》从小到大
+select * from emp order by age desc;# desc降序-》从大到小
+
+select * from emp order by age asc,salary desc; # 先按照age升序排列，如果age相同则按照salary降序排
+
+select post,avg(salary) from emp group by post order by avg(salary);
+
+#6、limit 限制显示的条件
+select * from emp limit 3;
+
+#薪资最高那个人的详细信息
+select * from emp order by salary desc limit 1;
+
+# 分页显示
+select * from emp limit 0,5; # 从0开始往后取5条
+select * from emp limit 5,5; #从5开始往后取5条
+
+#正则表达式
+select * from emp where name regexp "^jin.*(g|n)$";
+
+
+

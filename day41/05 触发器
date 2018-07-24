@@ -1,0 +1,35 @@
+CREATE TABLE cmd (
+    id INT PRIMARY KEY auto_increment,
+    USER CHAR (32),
+    priv CHAR (10),
+    cmd CHAR (64),
+    sub_time datetime, #提交时间
+    success enum ('yes', 'no') #0代表执行失败
+);
+
+CREATE TABLE errlog (
+    id INT PRIMARY KEY auto_increment,
+    err_id int
+);
+
+delimiter $$
+CREATE TRIGGER tri_after_insert_cmd AFTER INSERT ON cmd FOR EACH ROW
+BEGIN
+    if NEW.success = 'no' then
+        insert into errlog(err_id) values(NEW.id);
+    end if;
+END $$
+delimiter ;
+
+INSERT INTO cmd (
+    USER,
+    priv,
+    cmd,
+    sub_time,
+    success
+)
+VALUES
+    ('egon','0755','ls -l /etc',NOW(),'yes'),
+    ('egon','0755','cat /etc/passwd',NOW(),'no'),
+    ('egon','0755','useradd xxx',NOW(),'no'),
+    ('egon','0755','ps aux',NOW(),'yes');

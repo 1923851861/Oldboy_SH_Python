@@ -1,0 +1,43 @@
+# 1、跟权限有关的几张表
+user->db->table_priv->columns_priv
+
+# 2、只创建账号
+#create user tom@"客户端的ip" identified by "123";
+create user tom@"192.168.15.%" identified by "123";
+create user tom@"%" identified by "123";
+
+#客户端：192.168.15.13               服务端：192.168.15.90
+
+create user tom@"192.168.15.13 " identified by "123";
+mysql -utom -p"123" -h 192.168.15.90 -P 3306
+
+# 3、创建账号并且授权（只有root账号才能为其他账号授权grant）
+# *.* ===> mysql.user
+grant all on *.* to "tom"@"192.168.15.90" identified by "123";#all代表除了grant以外的所有权限
+
+# db1.* ===> mysql.db
+grant all on db1.* to "jack"@"192.168.15.90" identified by "123";#all代表除了grant以外的所有权限
+
+# db1.t1 ===> mysql.tables_priv
+grant all on db1.t1 to "rose"@"192.168.15.90" identified by "123";#all代表除了grant以外的所有权限
+
+# db1.t1(id) ===> mysql.columns_priv
+grant select(id),update(name) on db1.t1 to "lili"@"192.168.15.90" identified by "123";
+
+
+# 修改完权限一定要
+flush privileges;
+
+
+drop user "tom"@"192.168.15.90";
+drop user "jack"@"192.168.15.90";
+drop user "rose"@"192.168.15.90";
+drop user "lili"@"192.168.15.90";
+flush privileges;
+
+
+
+
+
+
+

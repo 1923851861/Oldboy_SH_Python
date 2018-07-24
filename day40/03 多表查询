@@ -1,0 +1,23 @@
+#1、笛卡儿积
+select * from emp,dep;
+
+select * from emp,dep where emp.dep_id = dep.id;
+
+select * from emp,dep where emp.dep_id = dep.id and dep.name = "技术";
+
+#2、内连接：只取两张表有对应关系的记录
+select * from emp inner join dep on emp.dep_id = dep.id;
+select * from emp inner join dep on emp.dep_id = dep.id
+                            where dep.name = "技术";
+
+
+#3、左连接: 在内连接的基础上保留左表没有对应关系的记录
+select * from emp left join dep on emp.dep_id = dep.id;
+
+#4、右连接: 在内连接的基础上保留右表没有对应关系的记录
+select * from emp right join dep on emp.dep_id = dep.id;
+
+#5、全连接：在内连接的基础上保留左、右面表没有对应关系的的记录
+select * from emp left join dep on emp.dep_id = dep.id
+union
+select * from emp right join dep on emp.dep_id = dep.id;

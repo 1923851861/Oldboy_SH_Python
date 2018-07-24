@@ -1,0 +1,77 @@
+方案一：
+    应用程序：
+    mysql：编写存储过程
+
+方案二：
+    应用程序：原生sql
+    mysql：
+
+方案三：
+    应用程序：ORM(类/对象 --->原生sql)
+    mysql：
+
+
+
+执行效率：
+    方案一 > 方案二 -> 方案三
+
+开发效率：
+    方案一 > 方案三 -> 方案二
+
+
+# 无参
+delimiter $$
+create procedure p1()
+BEGIN
+    select * from blog;
+END $$
+delimiter ;
+
+create table s1(
+id int,
+name varchar(20),
+gender char(6),
+email varchar(50)
+);
+
+delimiter $$
+create procedure p2()
+BEGIN
+    declare n int default 1;
+    while (n < 100) do
+        insert into s1 values(n,concat('egon',n),'male',concat('egon',n,'@163.com'));
+        set n=n+1;
+    end while;
+END $$
+delimiter ;
+
+# 有参
+delimiter $$
+create procedure p3(
+    in n int,
+    out res int
+)
+BEGIN
+    select * from blog where id > n;
+    set res = 0;
+END $$
+delimiter ;
+
+# 直接在mysql中调用：
+mysql> set @x=111;
+mysql> call p3(3,@x);
+mysql> select @x;
++------+
+| @x   |
++------+
+|    0 |
++------+
+1 row in set (0.00 sec)
+
+
+# 在python中调用：
+cursor.callproc('p4',(3,111)) #set @_p4_0 = 3; set @_p4_1 = 111
+print(cursor.fetchall())
+cursor.execute('select @_p4_1;')
+print(cursor.fetchone())
+
