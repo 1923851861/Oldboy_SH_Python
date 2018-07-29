@@ -1,0 +1,22 @@
+索引
+primary key
+unique key
+index key
+
+
+select age from s1 where age = 30;
+
+索引遵循：最左前缀匹配原则
+应该对哪些字段做索引：
+#1、应该对数据量较小字段做索引
+#2、应该对区分度高的字段做索引
+#3、索引字段不要参与运算
+
+
+
+id,name,gender,email
+
+select count(id) from s1 where id > 100 and id < 2000000 and name !='xxx' and gender = 'male' or email ='xxx';
+
+
+
